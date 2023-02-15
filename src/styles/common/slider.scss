@@ -1,0 +1,88 @@
+.slider {
+
+  .mySlides {
+    max-height: 500px;
+    overflow: hidden;
+    width: 85%;
+    margin: 25px auto 0 auto;
+    display: grid;
+    
+    &.show {
+      display: grid;
+    }
+
+    &.hide {
+      display: none;
+    }
+
+    img {
+      width: 100%;
+      margin: auto;
+    }
+  }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: $secondary;
+    font-weight: bold;
+    font-size: $font-size-lg;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+.next {
+  right: 10%;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 10%;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  color: $light;
+}
+
+.dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: $light;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dots {
+  text-align: center;
+
+  .active, .dot:hover {
+    background-color: $primary;
+  }
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+}

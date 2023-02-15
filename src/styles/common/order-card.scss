@@ -1,0 +1,173 @@
+.order-card {
+  width: 90%;
+  border: 1px solid $light;
+  margin: auto;
+  margin-bottom: 50px;
+
+  .order-header {
+    background-color: $light;
+    display: grid;
+    grid-template-columns: repeat(3, auto );
+    align-items: center;
+    padding: 5px;
+    font-size: $font-size-small;
+
+    &.admin {
+      grid-template-columns: repeat(4, auto );  
+    }
+
+    @media only screen and (min-width: 800px) {
+      font-size: $font-size-md;
+    }
+
+    .status {
+      padding: 5px 15px;
+      border-radius: 10px;
+      width: 40%;
+      justify-self: flex-end;
+      text-align: center;
+      &.pending {
+        background-color: #A6A7A7;
+      }
+
+      &.processed {
+        background-color: #288F2D;
+        color: $light;
+      }
+
+      &.error {
+        background-color: $error;
+        color: $light;
+      }
+    }
+  }
+
+  .order-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    padding: 15px;
+
+    @media only screen and (min-width: 700px) {
+      grid-template-columns: 25% 1fr 30%;
+    }
+
+    @media only screen and (min-width: 800px) {
+      grid-template-columns: 30% 1fr 30%;
+    }
+
+    .order-actions {
+      align-self: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      grid-column: 1/span 2;
+      
+
+      @media only screen and (min-width: 800px) {
+        flex-direction: column;
+        grid-column: 3/span 1;
+      }
+      
+      .button {
+        width: 80%;
+        padding: 5px 15px;
+        margin: 5px auto;
+      }
+
+      a {
+        font-size: $font-size-small;
+        color: $primary;
+        text-align: left;
+        padding: 10px
+      }
+    }
+
+    p {
+      font-size: $font-size-small;
+      line-height: 25px;
+    }
+    .img-container {
+      width: 200px;
+      align-self: center;
+
+      @media only screen and (min-width: 700px) {
+        width: 150px;
+      }
+
+      @media only screen and (min-width: 900px) {
+        width: 200px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.breadcrumbs {
+  padding: 15px;
+  span {
+    color: $primary;
+  }
+  a {
+    color: $primary;
+    padding: 5px;
+    text-decoration: none;
+
+    &.active {
+      color: #946000;
+    }
+  }
+}
+
+.welcome-message {
+  padding: 0 15px;
+}
+
+.search-bar {
+  display: grid;
+  max-width: 90%;
+  margin: auto;
+  padding: 15px;
+
+  &.admin {
+    grid-template-columns: 50px 1fr;
+
+    .icon-button {
+      background-color: transparent;
+      border: none;
+      font-size: $font-size-lg;
+
+      svg {
+        fill: $primary;
+
+        &:hover {
+          fill: $secondary;
+        }
+      }
+    }
+  }
+  
+  input {
+    padding: 5px 15px;
+    height: 20px;
+    border: 1px solid $primary;
+  }
+  button {
+    height: 20px;
+  }
+
+  .search {
+    justify-self: flex-end;
+  }
+}
+
+.font-small {
+  font-size: $font-size-small;
+}
+
+h2 {
+  font-size: $font-size-md;
+}

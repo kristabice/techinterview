@@ -1,0 +1,125 @@
+.main-nav {
+  background-color: $primary;
+
+  display: grid;
+  grid-template-columns: 1fr 300px 1fr 50px;
+  min-height: 100px;
+  align-items: center;
+  column-gap: 25px;
+
+  a {
+    text-decoration: none;
+    color: $light;
+    padding: 10px;
+  }
+
+  .right-nav {
+    justify-self: flex-end;
+  }
+  
+  .left-nav {
+    justify-self: flex-start;
+  }
+
+  .logo {
+    justify-self: center;
+    max-width: 80%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .login-menu  {
+    button {
+      background: transparent;
+      border: none;
+    }
+    .login-icon {
+      font-size: $font-size-lg;
+      color: $light;
+      fill: $light;
+    }
+  
+  }
+
+
+}
+
+.mobile-nav {
+
+  background-color: $primary;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 100px;
+  align-items: center;
+  column-gap: 25px;
+  padding: 15px;
+  position: relative;
+
+  button {
+    background-color: transparent;
+    border: none;
+    justify-self: flex-start;
+
+    svg {
+      fill: $light;
+      font-size: 30px;
+    }
+  }
+
+  .drawer {
+    display: none;
+    position: fixed;
+    left: 900px;
+    top: 0;
+    flex-direction: column;
+    background-color: $primary;
+    width: 40%;
+    height: 100%;
+    z-index: 1;
+    padding: 15px;
+    align-items: center;
+    transition: left 2s;
+
+    button {
+      align-self: flex-end;
+    }
+  }
+
+  .drawer.show {
+    left: 0;
+    display: flex;
+  }
+
+  a {
+    text-decoration: none;
+    color: $light;
+    padding: 10px;
+  }
+
+  .logo {
+    justify-self: center;
+    align-self: center;
+    max-width: 80%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .login-menu  {
+    justify-self: flex-end;
+    button {
+      background: transparent;
+      border: none;
+    }
+    .login-icon {
+      fill: $light;
+    }
+  
+  }
+
+
+}

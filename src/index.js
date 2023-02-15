@@ -1,13 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import {
+  createBrowserRouter,
+  RouterProvider
+} from 'react-router-dom'
+import './App.scss';
 import App from './App';
+import Nav from './common/Nav'
 import reportWebVitals from './reportWebVitals';
+import { LoginProvider } from './context/LoginContext';
+import Orders from './components/Orders';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/sign-in",
+    element: <p>sign-in</p>
+  },
+  {
+    path: "/orders",
+    element: <Orders />
+  },
+  {
+    path: "/admin",
+    element: <Orders />
+  },
+  {
+    element: <Nav />
+  }
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <LoginProvider>
+      <RouterProvider router={router} /> 
+    </LoginProvider>
   </React.StrictMode>
 );
 

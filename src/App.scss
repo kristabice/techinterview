@@ -1,0 +1,23 @@
+@forward "./styles/variables/colors";
+@forward "./styles/variables/fonts";
+@use './styles/variables/colors' as *;
+@use './styles/variables/fonts' as *;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500;600&display=swap');
+
+// global styling
+* {
+  box-sizing: content-box;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: $normal;
+  color: $secondary
+}
+
+
+// common style imports
+@import './styles/common/nav.scss';
+@import './styles/common/slider.scss';
+@import './styles/common/modal.scss';
+@import './styles/common/button.scss';
+@import './styles/common/order-card.scss';
+@import './styles/common/slideout.scss';

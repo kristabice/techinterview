@@ -1,0 +1,30 @@
+import React from 'react'
+
+export const LoginContext = React.createContext()
+
+const loginReducer = (state, action) => {
+  switch(action.type) {
+    case 'login': {
+      document.cookie = `username: ${action.payload.username}`
+      return {...state, username: action.payload.username}
+    }
+    case 'setUser': {
+      return {...state, user: action.payload.user, admin: action.payload.admin}
+    }
+    case 'logout': {
+      document.cookie = `username=;Max-Age=-99999999;`
+      return {...state, username: null}
+    }
+    default: {
+      throw new Error(`Unhandled action type: ${action.type}`)
+    }
+  }
+}
+
+function LoginProvider({children}) {
+  const [state, dispatch] = React.useReducer(loginReducer, {username: null, user: [], admin: false})
+  const value = {state, dispatch}
+  return <LoginContext.Provider value={value}>{children}</LoginContext.Provider>
+}
+
+export {LoginProvider}
