@@ -9,13 +9,11 @@ import { users } from '../assets/MOCK_DATA';
 
 const LoginModal = ({showLoginModal, setShowLoginModal}) => {
   const [username, setUsername] = useState()
+  const [password, setPassword] = useState()
   const [error, setError] = useState(false)
+  const [passwordError, setPasswordError] = useState(false)
   const {dispatch, state} = useContext(LoginContext)
   let navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setUsername(e.target.value)
-  }
 
   const handleCloseModal = () => {
     setError(false)
@@ -27,27 +25,44 @@ const LoginModal = ({showLoginModal, setShowLoginModal}) => {
       dispatch({type: 'logout'})
       return;
     }
-    if(username === '' || username === undefined) {
-      setError(true)
-      return
-    } else {
-      const isAdmin = users.filter(user => {
-         return user.admin === true && user.customer_id === username.trim()
-        })
+    validation()
+    setUsers()
+    handleCloseModal()
+  }
+  
+  const validation = () => {
+    if(username === '' || username === undefined) setError(true)
 
-      dispatch({type: 'login', payload: {username: username}})
-      handleCloseModal()
-      if(isAdmin.length) {
-        dispatch({type: 'setUser', payload: {user: users, admin: true}})
-        navigate('/admin')
-      } else {
-        const user = users.filter(user => user.customer_id === username)
-        dispatch({type: 'setUser', payload: {user: user, admin: false}})
-        navigate('/orders')
+     if(password === '' || password === undefined) setPasswordError(true)
+
+    if(error || passwordError)
+      return
+  }
+
+  const setUsers = async () => {
+    const isAdmin = users.filter(user => {
+      return user.admin === true && user.username === username?.trim()
+    })
+
+    const removeAdmin = users.filter(user => {
+      return user.admin !== true
+    })
+
+    await dispatch({type: 'login', payload: {username: username}})
+
+    if(isAdmin.length) {
+      await dispatch({type: 'setUser', payload: {user: removeAdmin, admin: true}})
+      navigate('/admin')
+    } else {
+      const user = users.filter(user => (user.username === username) && (user.password === password))
+      if(user.length === 0) {
+        await dispatch({type: 'logout'})
+        return;
       }
+      await dispatch({type: 'setUser', payload: {user: removeAdmin, admin: false}})
+      navigate('/orders')
     }
   }
-  console.log(state)
 
  return(
    <Modal 
@@ -66,10 +81,19 @@ const LoginModal = ({showLoginModal, setShowLoginModal}) => {
             type="text" 
             placeholder='Enter you username' 
             value={username} 
-            onChange={e => handleChange(e)}
+            onChange={e => setUsername(e.target.value)}
           />
+          {error && <p className='error'>Username is required</p>}
+
+          <input 
+            className={classNames({error: error})}
+            type="text" 
+            placeholder='Enter you assword' 
+            value={password} 
+            onChange={e => setPassword(e.target.value)}
+          />
+          {passwordError && <p className='error'>Password is required</p>}
         </label>
-        {error && <p className='error'>Username is required</p>}
         </>
     )}
   </Modal>

@@ -1098,7 +1098,9 @@ export const users = [{
  "total": "107.63",
   "status": "Error",
   "customer_id": "XX0658795-i-51664552",
-"order_number": "XX5477277-P-42130639-XX1901445"
+  "order_number": "XX5477277-P-42130639-XX1901445",
+  "username": "testUser2",
+  "password": "test123"
 },
 {
   "id": 101,
@@ -1110,7 +1112,9 @@ export const users = [{
  "total": "20.42",
   "status": "Processed",
   "customer_id": "XX9004693-v-46203909",
-"order_number": "XX5477277-P-42130639-XX1901445"
+  "order_number": "XX5477277-P-42130639-XX1901445",
+  "username": "testUser3",
+  "password": "test123"
 }, 
 {
   "id": 102,
@@ -1122,7 +1126,9 @@ export const users = [{
  "total": "85.33",
   "status": "Processed",
   "customer_id": "XX9004693-v-46203909",
-"order_number": "XX5477277-P-42130639-XX1901445"
+  "order_number": "XX5477277-P-42130639-XX1901445",
+  "username": "testUser3",
+  "password": "test123"
 },
 {
   "id": 103,
@@ -1134,7 +1140,9 @@ export const users = [{
  "total": "85.33",
   "status": "Processed",
   "customer_id": "XX2652846-V-83268620",
-"order_number": "XX5477277-P-42130639-XX1901445"
+  "order_number": "XX5477277-P-42130639-XX1901445",
+  "username": "testUser1",
+  "password": "test123"
 },
 {
   "id": 104,
@@ -1146,7 +1154,9 @@ export const users = [{
  "total": "20.63",
   "status": "Processed",
   "customer_id": "XX2652846-V-83268620",
-"order_number": "XX5477277-P-42130639-XX1901445"
+  "order_number": "XX5477277-P-42130639-XX1901445",
+  "username": "testUser1",
+  "password": "test123"
 },
 {
   "id": 105,
@@ -1158,7 +1168,9 @@ export const users = [{
  "total": "110.32",
   "status": "Processed",
   "customer_id": "XX2652846-V-83268620",
-"order_number": "XX5477277-P-42130639-XX1901445"
+  "order_number": "XX5477277-P-42130639-XX1901445",
+  "username": "testUser1",
+  "password": "test123"
 },
 {
   "id": 106,
@@ -1170,7 +1182,9 @@ export const users = [{
  "total": "200.49",
   "status": "Processed",
   "customer_id": "XX2652846-V-83268620",
-"order_number": "XX5477277-P-42130639-XX1901445"
+  "order_number": "XX5477277-P-42130639-XX1901445",
+  "username": "testUser1",
+  "password": "test123"
 },
 {
   "id": 107,
@@ -1182,7 +1196,9 @@ export const users = [{
  "total": "15.99",
   "status": "Processed",
   "customer_id": "XX2652846-V-83268620",
-"order_number": "XX5477277-P-42130639-XX1901445"
+  "order_number": "XX5477277-P-42130639-XX1901445",
+  "username": "testUser1",
+  "password": "test123"
 },
 {
   "id": 109,
@@ -1191,10 +1207,12 @@ export const users = [{
   "address": "Room 1319",
   "product": "telescope",
   "purchase_date": "12/25/2022",
- "total": "43.63",
+  "total": "43.63",
   "status": "Processed",
   "customer_id": "XX2652846-V-83268620",
-"order_number": "XX5477277-P-42130639-XX1901445"
+  "order_number": "XX5477277-P-42130639-XX1901445",
+  "username": "testUser1",
+  "password": "test123"
 },
 {
   "id": 108,
@@ -1202,7 +1220,9 @@ export const users = [{
   "last_name": "Dumbledore",
   "admin": true,
   "customer_id": "XX2652846-V-832686867",
-  "order_number": "XX5477277-P-42130639-XX1901445"
+  "order_number": "XX5477277-P-42130639-XX1901445",
+  "username": "testAdmin",
+  "password": "test123"
 },
 ]
 

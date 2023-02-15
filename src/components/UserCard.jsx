@@ -3,7 +3,7 @@ import React from 'react'
 import Button from '../common/Button'
 import { products } from '../assets/MOCK_DATA'
 
-const UserCard = ({cardData}) => (
+const UserCard = ({cardData, truncateString}) => (
   cardData.map(card => (
     <div className='order-card' key={card.id}>
       <div className='order-header'>
@@ -20,8 +20,8 @@ const UserCard = ({cardData}) => (
                   <img src={product.img} alt="product" />
                 </div>
                 <div className='details' key={card.id + 'details'}>
-                  <h2>{product.name}</h2>
-                  <p>{product.description}</p>
+                  <h2>{truncateString(product.name, 60)}</h2>
+                  <p>{truncateString(product.description, 200)}</p>
                 </div>
                 <div className='order-actions' key={card.id + 'action'}>
                   <a href="#">Order Number: <br/> {card.order_number} </a>

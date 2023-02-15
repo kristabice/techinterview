@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Instructions
+1. Download the [git repo](https://github.com/kristabice/techinterview)
+2. Once downloaded open the file in the terminal or your favorite IDE and run `yarn install`
+3. After you have completed a yarn install then you can go ahead and run `nom run start`  this should start up the application on [localhost:3000](http://localhost:3000/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## User View:
+To see the user view for this application go ahead and select the user icon in the top left corner of the page. This should open a “login” modal.  Since we were not worrying about validation here I didn’t make this super fancy. So I have just set up a few default users to view. If you want to view other users you just need to add a test username and password to them.  For the users:
+```
+User 1:
+  "username": "testUser1",
+  "password": "test123"
 
-## Available Scripts
+User 2:
+  "username": "testUser2",
+  "password": "test123"
 
-In the project directory, you can run:
+User 3:
+  "username": "testUser3",
+  "password": "test123"
 
-### `npm start`
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+And for the admin login you would login with 
+```
+  "username": "testAdmin",
+  "password": "test123"
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
 
-### `npm test`
+Once logged in you should be automatically redirected to the proper page. Now this is where I am unsure I did things right. I mostly visually built this page. However, I was not sure if you wanted all the functionality of this page as well. The search works for the product titles if you are a user. If you are an admin you can search by status, first name or last name. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you want more functionality on this page I am more than happy to add it. Again, I was just not fully sure if it was needed since it wasn’t outlined in the interview email.
 
-### `npm run build`
+My design resources and sketches can be found in the 'tech-interview/design' folder. Please let me know if there are any additional questions you have or anything else I can add to this. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Time Totals:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2 hours - Research and Design
+* this involved going to other e-commerce websites and looking at how their order pages. 
+	* As a result I noticed most of them had the following information - a way to contact either the seller or the user, order date and status, order number, order description (truncated if too long) , order title (this seemed to be truncated at about 50-60 characters on display screens), an image of the product, and a way to search the page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+6 hours - Code 
+* This includes the time it took me to setup a new react app, and environment.

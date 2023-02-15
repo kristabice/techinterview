@@ -25,18 +25,46 @@ const Orders = ()  => {
   }, [state.username])
 
   const handleSearch = () => {
+    let results;
+    setCardData(state.user)
     if(search === '' || search === undefined) {
       setCardData(state.user)
       return
     }
     const regex = new RegExp(".*" + search + ".*", "ig")
 
-    const results = cardData.filter(search => {
-      return search.product.match(regex)
-    })
+    if(!state.admin) {
+      const newResults = []
+      newResults.push(...cardData.filter(search => {
+        return search.product.match(regex)
+      }))
+    } else {
+      const newResults = []
+      newResults.push(...cardData.filter(search => {
+        return search?.first_name.match(regex)
+      }))
 
+      newResults.push(...cardData.filter(search => {
+        return search?.last_name.match(regex)
+      }))
+
+      newResults.push(...cardData.filter(search => {
+        return search?.status.match(regex)
+      }))
+      results = newResults
+    }
     setCardData(results)
   }
+
+  
+  function truncateString(str, num) {
+    if (str.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  }
+
 
   return(
     <>
@@ -67,10 +95,8 @@ const Orders = ()  => {
           />
         </div>
       </div>
-      {state.admin 
-      ? <AdminCard cardData={cardData} />
-      : <UserCard cardData={cardData} />
-      }
+      {state.admin && <AdminCard cardData={cardData} />}
+      {state.user && !state.admin && <UserCard cardData={cardData} truncateString={truncateString} />} 
     </>
   )
 
