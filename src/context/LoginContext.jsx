@@ -5,8 +5,6 @@ export const LoginContext = React.createContext()
 const loginReducer = (state, action) => {
   switch(action.type) {
     case 'login': {
-      console.log('here', action.payload.username)
-      console.log(action.payload, state)
       return {...state, username: action.payload.username}
     }
     case 'setUser': {

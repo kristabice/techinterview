@@ -96,7 +96,6 @@ const Orders = ()  => {
           />
         </div>
       </div>
-      {console.log(cardData)}
       {state.admin && <AdminCard cardData={cardData} />}
       {state.user && !state.admin && <UserCard cardData={cardData} truncateString={truncateString} />} 
     </>
