@@ -7,7 +7,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 import logo from '../assets/logo3.png'
 import LoginModal from './LoginModal'
 
-const MobileNav = ({isMobile, setShowLoginModal, showLoginModal, setOpenMenu, openMenu}) => {
+const MobileNav = ({isMobile, setShowLoginModal, showLoginModal, setOpenMenu, openMenu, username}) => {
 
   return (
     <>
@@ -25,7 +25,10 @@ const MobileNav = ({isMobile, setShowLoginModal, showLoginModal, setOpenMenu, op
           <div className={classNames('drawer', {show: openMenu})}>
         <button className='close-button' onClick={() => setOpenMenu(false)}><AiOutlineCloseCircle /></button>
           <a href='/'>Home</a>
-          <a href='#'>Shop</a>
+          {username 
+            ? <a href="/orders">Orders</a>
+            : <a href='#'>Shop</a>
+          }
           <a href='#'>Contact</a>
           <a href='#'>About</a>
         </div>

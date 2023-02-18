@@ -12,11 +12,15 @@ const LoginModal = ({showLoginModal, setShowLoginModal}) => {
   const [password, setPassword] = useState()
   const [error, setError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
+  const [userExists, setUserExists] = useState(true)
   const {dispatch, state} = useContext(LoginContext)
   let navigate = useNavigate();
 
   const handleCloseModal = () => {
     setError(false)
+    setPasswordError(false)
+    setUsername(null)
+    setPassword(null)
     setShowLoginModal(false)
   }
 
@@ -27,7 +31,6 @@ const LoginModal = ({showLoginModal, setShowLoginModal}) => {
     }
     validation()
     setUsers()
-    handleCloseModal()
   }
   
   const validation = () => {
@@ -54,13 +57,15 @@ const LoginModal = ({showLoginModal, setShowLoginModal}) => {
       await dispatch({type: 'setUser', payload: {user: removeAdmin, admin: true}})
       navigate('/admin')
     } else {
-      const user = users.filter(user => (user.username === username) && (user.password === password))
+      const user = removeAdmin.filter(u =>  u.username === username && u.password === password)
       if(user.length === 0) {
+        setUserExists(false)
         await dispatch({type: 'logout'})
-        return;
+      } else {
+        await dispatch({type: 'setUser', payload: {user: user, admin: false}})
+        navigate('/orders')
+        handleCloseModal()
       }
-      await dispatch({type: 'setUser', payload: {user: removeAdmin, admin: false}})
-      navigate('/orders')
     }
   }
 
@@ -75,6 +80,7 @@ const LoginModal = ({showLoginModal, setShowLoginModal}) => {
   >
     {!state.username && ( 
       <>
+        {!userExists && <p className='alert'>Username or password are incorrect</p>}
         <label>Username *<br/>
           <input 
             className={classNames({error: error})}

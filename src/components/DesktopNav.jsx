@@ -6,12 +6,15 @@ import LoginModal from './LoginModal'
 
 
 
-const DesktopNav = ({showLoginModal, setShowLoginModal, isMobile}) => (
+const DesktopNav = ({showLoginModal, setShowLoginModal, isMobile, username}) => (
     <>
       <nav className="main-nav">
         <div className='right-nav'>
           <a href='/'>Home</a>
-          <a href='#'>Shop</a>
+          {username 
+            ? <a href="/orders">Orders</a>
+            : <a href='#'>Shop</a>
+          }
         </div>
         <div className="logo">
           <a href="/">

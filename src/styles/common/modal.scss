@@ -20,6 +20,13 @@
     display: none;
   }
 
+  .alert {
+    font-size: $font-size-small;
+    background-color: $alert;
+    padding: 5px 10px;
+    color: $light;
+  }
+
   .modal-content {
     background-color: $light;
     margin: auto;
