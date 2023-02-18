@@ -38,6 +38,7 @@ const Orders = ()  => {
       newResults.push(...cardData.filter(search => {
         return search.product.match(regex)
       }))
+      results = newResults
     } else {
       const newResults = []
       newResults.push(...cardData.filter(search => {
@@ -95,6 +96,7 @@ const Orders = ()  => {
           />
         </div>
       </div>
+      {console.log(cardData)}
       {state.admin && <AdminCard cardData={cardData} />}
       {state.user && !state.admin && <UserCard cardData={cardData} truncateString={truncateString} />} 
     </>

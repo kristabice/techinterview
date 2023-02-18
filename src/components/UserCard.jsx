@@ -4,7 +4,7 @@ import Button from '../common/Button'
 import { products } from '../assets/MOCK_DATA'
 
 const UserCard = ({cardData, truncateString}) => (
-  cardData.map(card => (
+  cardData?.map(card => (
     <div className='order-card' key={card.id}>
       <div className='order-header'>
         <p>Order Placed:<br/> <span className="font-small">{card.purchase_date}</span></p>
@@ -12,7 +12,7 @@ const UserCard = ({cardData, truncateString}) => (
         <p>Ship To: <br/> <span className="font-small">{card.address}</span></p>
       </div>
       <div className='order-body'>
-        {products.map(product => {
+        {products?.map(product => {
           if(product.code === card.product) {
             return (
               <>
